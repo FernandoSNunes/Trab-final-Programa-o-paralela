@@ -3,9 +3,9 @@ static void intercala (int p, int q, int r, float v[], float w[])
    int i, j;
    //w = malloc ((r-p) * sizeof (float));
 
-   for (i = p; i < q; ++i) w[i-p] = v[i];
-   for (j = q; j < r; ++j) w[r-p+q-j-1] = v[j];
-   i = 0; j = r-p-1;
+   for (i = p; i < q; ++i) w[i] = v[i];
+   for (j = q; j < r; ++j) w[r+q-j-1] = v[j];
+   i = p; j = r-1;
    for (int k = p; k < r; ++k)
       if (w[i] <= w[j]) v[k] = w[i++];
       else v[k] = w[j--];
@@ -26,7 +26,7 @@ __kernel void merge_sort_gpu(
 	
     int current_size = 1;
 	while (current_size < N) {
-      if (p + current_size < N && p == p + 2*current_size) {
+      if (p + current_size < N && (p)%(2*current_size) == 0) {
          int r = p + 2*current_size;
          if (r > N) r = N;
          intercala (p, p+current_size, r, V, w);
