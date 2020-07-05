@@ -1,3 +1,8 @@
+/*
+	Fernando Sassi Nunes
+	Codigo orinal do merge sort obtido em :	https://www.ime.usp.br/~pf/algoritmos/aulas/mrgsrt.html
+	primeira implementação do Merge Sort paralela
+*/
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
