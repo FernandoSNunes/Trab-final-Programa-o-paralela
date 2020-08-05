@@ -9,6 +9,8 @@
 #include<time.h> 
 #include <sys/time.h>
 
+
+//modificado via git
 static void intercala (int p, int q, int r, float v[])
 {
    int i, j;
